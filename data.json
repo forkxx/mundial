@@ -1,0 +1,13 @@
+{
+  "meta": 11000,
+  "arrecadado": 0,
+  "prazo": "2027-02-11",
+  "atualizado": "2026-11-24",
+  "custos": [
+    { "nome": "Viagem", "valor": 7500 },
+    { "nome": "Hospedagem", "valor": 2500 },
+    { "nome": "Uber e afins", "valor": 500 },
+    { "nome": "Comida / fundo reserva", "valor": 500 }
+  ],
+  "apoiadores": []
+}
