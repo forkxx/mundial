@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<script>document.documentElement.classList.add("js")</script>
+<script>document.documentElement.classList.add("js");(function(){var m=/[?&]export=(wide|square|story)/.exec(location.search);if(m)document.documentElement.className+=" exp exp-"+m[1]})()</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Road to Raraland</title>
 <meta name="description" content="Help Forkxx travel to the community-run Warcraft 3 World Championship in Germany, March 11-14, 2027. Goal: R$ 11,000 (BRL).">
@@ -256,6 +256,23 @@ h2{font-size:2.5rem}
 #ajudar .pays>.card.pay{position:relative;top:-8px;align-self:stretch;border:2px solid transparent;border-radius:16px;box-shadow:0 24px 50px rgba(0,0,0,.6),0 0 40px rgba(162,75,255,.18);background:linear-gradient(#171720,#171720) padding-box,linear-gradient(135deg,#f4f6fa,#8f97a6 25%,#e9edf3 45%,#7b8394 65%,#fdfdff 85%,#9aa2b2) border-box}
 #ajudar .pays>.card.pay .qr{max-width:240px}
 @media(max-width:860px){.pays{grid-template-columns:minmax(0,1fr)}#ajudar .pays>.card.pay{order:0;top:0}#ajudar .paycol .card.pay:first-child{order:1}#ajudar .paycol .card.pay:last-child{order:2}}
+
+.hero .note{font-size:.82rem}
+/* modo exportar PNG: index.html?export=wide|square|story */
+.exp header.nav,.exp .sbar,.exp footer,.exp main>section,.exp .hero .note,.exp .hero .actions,.exp .sp{display:none!important}
+.exp,.exp body{margin:0;overflow:hidden}.exp .hero .wrap{max-width:none;width:100%}
+.exp .hero{padding:0;display:flex;align-items:center;justify-content:center}
+.exp-wide body{width:1920px;height:1080px}
+.exp-wide .hero{zoom:1.5;width:1280px;height:720px}.exp-wide .hero .wrap{padding:0 90px}
+.exp-square body{width:1080px;height:1080px}
+.exp-square .hero{width:1080px;height:1080px}.exp-square .hero .wrap{padding:0 60px}
+.exp-story body{width:1080px;height:1920px}
+.exp-story .hero{width:1080px;height:1920px}.exp-story .hero .wrap{padding:0 60px}
+.exp-square .hero-grid,.exp-story .hero-grid{grid-template-columns:minmax(0,1fr);gap:26px;text-align:center;justify-items:center}
+.exp-square .tank-wrap{max-width:410px}.exp-story .tank-wrap{max-width:640px}
+.exp-square h1{font-size:5.6rem}.exp-square .tag{font-size:1.3rem;margin:0 auto}.exp-square .hbig{font-size:6.4rem}.exp-square .hof{font-size:1.2rem}
+.exp-story h1{font-size:7.4rem}.exp-story .tag{font-size:1.9rem;margin:0 auto;max-width:800px}.exp-story .hbig{font-size:8.6rem}.exp-story .hof{font-size:1.7rem}
+.exp-story .hero{padding-top:0}
 </style>
 </head>
 <body>
