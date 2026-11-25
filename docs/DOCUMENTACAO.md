@@ -140,11 +140,10 @@ Fase 3: contador ao vivo do status da live (como no Mídia Kit), galeria dos vlo
 7. Sem editor no site: apoiadores e valores são adicionados pedindo ao Claude no projeto, que edita o `data.json`.
 8. Regra de arrecadação (25/11/2026): 85% de cada doação conta para a meta e 15% mantém as custas do canal até o evento. No `data.json`, `percentualMeta` vale 85 e cada apoiador guarda o valor bruto doado. A barra e o tanque usam 85% da soma; a nuvem usa o valor bruto. O texto vale para Pix, PayPal e lives (o cartão de lives foi removido).
 9. Primeiras 10 doações lançadas (R$ 215,00 brutos, R$ 182,75 para a meta).
+10. Ordem das seções (25/11/2026): hero com tanque, nuvem de apoiadores (2ª seção), meta, como ajudar, evento, dúvidas. A nuvem mede cada nome pelo tamanho real (offsetWidth/Height) e testa colisão com folga, então os nomes nunca se sobrepõem. Os ícones de PIX e PayPal são genéricos, não os logotipos oficiais.
 
 ## 10. Pendências
 
 - Link direto de pagamento do PayPal (paypal.me), se quiser um botão além do e-mail.
 - Trocar a imagem de compartilhamento (`assets/og.png`) por uma arte própria, se desejado.
 - Fase 2: tema claro e linha do tempo de marcos.
-
-9. Ordem das seções (25/11/2026): hero com tanque, nuvem de apoiadores (2ª seção), meta, como ajudar, evento, dúvidas. A nuvem mede cada nome pelo tamanho real (offsetWidth/Height) e testa colisão com folga, então os nomes nunca se sobrepõem. Os ícones de PIX e PayPal são genéricos, não os logotipos oficiais.
