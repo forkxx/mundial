@@ -55,7 +55,16 @@ h2 span{color:var(--purple)}
 .btn.sm{padding:9px 18px;font-size:.88rem;min-height:40px}
 .hero{position:relative;padding:56px 0 30px;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:-120px -10% auto -10%;height:460px;background:radial-gradient(60% 70% at 25% 30%,var(--glow),transparent 70%);pointer-events:none}
-.hero-grid{position:relative;display:grid;grid-template-columns:1fr 280px;gap:40px;align-items:center}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,520px) 1fr;gap:44px;align-items:center}
+.tank-wrap{position:relative;width:100%;max-width:520px;aspect-ratio:1;margin:0 auto}
+.tank{position:absolute;inset:0;border-radius:50%;border:6px solid #3a3a52;background:#14141c;overflow:hidden;box-shadow:0 0 0 8px rgba(162,75,255,.10),0 24px 60px rgba(0,0,0,.55)}
+.water{position:absolute;left:0;right:0;bottom:0;top:97%;background:linear-gradient(180deg,#a24bff,#5a1fb0);transition:top 1.2s ease}
+.wave{position:absolute;left:0;top:-26px;width:200%;height:28px;fill:#a24bff;animation:wv 6s linear infinite}
+@keyframes wv{to{transform:translateX(-50%)}}
+.tlogo{position:absolute;left:50%;top:50%;width:62%;height:auto;transform:translate(-50%,-50%);filter:drop-shadow(0 10px 24px rgba(0,0,0,.65))}
+.hbig{font-family:var(--head);font-size:clamp(3.2rem,8vw,5.8rem);font-weight:800;line-height:1;margin:14px 0 4px}
+.hof{color:var(--mute);font-size:1.05rem;margin-bottom:22px}.hof b{color:#fff}
+
 .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:.8rem;font-weight:600;color:#c9c9d8}
 .pill i{width:8px;height:8px;border-radius:50%;background:var(--gold)}
 h1{font-size:clamp(2.8rem,8vw,4.8rem);font-weight:800;color:var(--purple);margin:18px 0 6px;text-shadow:3px 3px 0 #3c1470,0 0 40px var(--glow)}
@@ -93,19 +102,28 @@ a.card:hover{border-color:#3a3a52}
 .lk span{color:var(--mute);font-size:.8rem;font-weight:500}
 .info b{display:block;font-family:var(--head);font-size:1.5rem;font-weight:800;margin-top:4px}
 .info .eyebrow{margin:0}
+.cloud{position:relative;height:500px;border-radius:20px;border:1px solid #2a2146;overflow:hidden;background:#07060d radial-gradient(60% 70% at 50% 55%,rgba(122,47,224,.35),transparent 70%)}
+.cl-logo{position:absolute;left:50%;top:50%;width:min(60%,380px);height:auto;transform:translate(-50%,-50%);opacity:.16;pointer-events:none}
+.cl-list{list-style:none;position:absolute;inset:0}
+.cl-list li{position:absolute;white-space:nowrap;line-height:1.1;font-family:var(--head);font-weight:800;animation:pop .5s ease}
+@keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+.cl-empty{position:absolute;left:0;right:0;bottom:22px;text-align:center;color:#cfc4ee;padding:0 20px}
+.full{margin-top:14px}.full summary{cursor:pointer;color:#c58bff;font-weight:600;padding:10px 0;min-height:44px}
+.full .sup{margin-top:8px}
 .sup{padding:8px 22px 22px}
 .sup .h,.sup .r{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1fr) minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.92rem}
 .sup .h{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:600}
 .sup .r span:last-child,.sup .h span:last-child{text-align:right}
-.empty{padding:36px 0 10px;text-align:center;color:var(--mute)}
+
 .faq{grid-template-columns:repeat(2,minmax(0,1fr))}
 .faq h3{font-size:1.2rem;margin-bottom:6px}
 .faq p{color:var(--mute);font-size:.95rem}
 footer{margin-top:56px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--mute);font-size:.9rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
 .upd{font-size:.76rem;color:var(--mute);margin-top:10px}
-@media(max-width:860px){.cost b{font-size:1.15rem}.big{font-size:2.6rem}.big small{display:block;margin:4px 0 0}.hero-grid{grid-template-columns:1fr}.photo{width:200px;height:200px;order:-1}.metarow,.three,.faq{grid-template-columns:minmax(0,1fr)}.links{display:none}.lang{margin-left:auto}}
-@media(prefers-reduced-motion:reduce){.bar div{transition:none}html{scroll-behavior:auto}}
+@media(max-width:860px){.cost b{font-size:1.15rem}.big{font-size:2.6rem}.big small{display:block;margin:4px 0 0}.hero-grid{grid-template-columns:minmax(0,1fr)}.tank-wrap{max-width:380px}.metarow,.three,.faq{grid-template-columns:minmax(0,1fr)}.links{display:none}.lang{margin-left:auto}}
+@media(max-width:600px){.cloud{height:520px}}
+@media(prefers-reduced-motion:reduce){.cl-list li{animation:none}.wave{animation:none}.water{transition:none}.bar div{transition:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -117,14 +135,18 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 </div></header>
 <main id="top">
 <div class="hero"><div class="wrap hero-grid">
+<div class="tank-wrap">
+<div class="tank" id="tank" role="img" aria-label="Goal tank: the water level shows how much has been raised"><div class="water" id="water"><svg viewBox="0 0 1200 60" preserveAspectRatio="none" class="wave" aria-hidden="true"><path d="M0 30 Q150 0 300 30 T600 30 T900 30 T1200 30 T1500 30 T1800 30 T2100 30 T2400 30 V60 H0Z"/></svg></div></div>
+<img class="tlogo" src="assets/logo-mundial.webp" alt="Logo do Mundial de Warcraft 3" width="625" height="637">
+</div>
 <div>
 <span class="pill"><i></i>Being Esports World Series 2027 · Warcraft 3</span>
 <h1>Forkão no Raraland!!</h1>
 <p class="tag">Help Forkxx get to the Warcraft 3 World Championship in Germany.</p>
-<p class="sub">A world championship run by the community. Vlogs, live streams and interviews with the War3 crowd, straight from Scholl Hundisburg, March 11-14, 2027.</p>
+<div class="hbig" id="heroRaised">R$ 0,00</div>
+<p class="hof"><span id="heroOf">of R$ 11.000,00</span> · <b id="heroPct">0%</b> of goal</p>
 <div class="actions"><a class="btn" href="#ajudar">I want to help</a><a class="btn ghost" href="#evento">See the event</a></div>
 </div>
-<img class="photo" src="assets/foto-forkxx.webp" alt="Forkxx" width="280" height="280">
 </div></div>
 
 <section id="meta"><div class="wrap">
@@ -198,11 +220,17 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 <section id="apoiadores"><div class="wrap">
 <div class="eyebrow">Supporters</div>
 <h2>Thank you <span>so much</span></h2>
+<div class="cloud" id="cloud">
+<img class="cl-logo" src="assets/logo-mundial.webp" alt="" width="625" height="637" loading="lazy">
+<ul class="cl-list" id="cloudList"></ul>
+<div class="cl-empty" id="empty">No supporters yet. The first name on the list could be yours.</div>
+</div>
+<details class="full" id="full"><summary>View full list</summary>
 <div class="card sup">
 <div class="h"><span>Name</span><span>Date</span><span>Amount</span></div>
 <div id="list"></div>
-<div class="empty" id="empty">No supporters yet. The first name on the list could be yours.</div>
 </div>
+</details>
 </div></section>
 
 <section id="duvidas"><div class="wrap">
@@ -223,6 +251,37 @@ var LOC='en-US',CUR='BRL';
 var fmt=function(v){return new Intl.NumberFormat(LOC,{style:'currency',currency:CUR}).format(v)};
 var fdate=function(s){var d=new Date(s+'T12:00:00');return d.toLocaleDateString(LOC,{day:'2-digit',month:'short',year:'numeric'})};
 function esc(t){var e=document.createElement('div');e.textContent=t;return e.innerHTML}
+var CLOUD=[];
+function drawCloud(){
+  var box=document.getElementById('cloud'),ul=document.getElementById('cloudList');
+  ul.innerHTML='';
+  if(!CLOUD.length)return;
+  var W=box.clientWidth,H=box.clientHeight,max=CLOUD[0].v;
+  var big=W<600?Math.max(30,W/8.5):74,small=W<600?13:15,sc=1;
+  for(var tries=0;tries<16;tries++){
+    ul.innerHTML='';
+    var els=CLOUD.map(function(c,i){
+      var li=document.createElement('li'),col=i<3?'#ffd45e':i<8?'#d9a8ff':'#b9b9ff',fs=Math.round((small+(big-small)*Math.pow(c.v/max,.55))*sc);
+      li.textContent=c.n;li.title=fmt(c.v);
+      li.style.cssText='left:0;top:0;visibility:hidden;font-size:'+fs+'px;color:'+col+';text-shadow:0 0 14px '+col;
+      ul.appendChild(li);return li;
+    });
+    var pl=[],ok=true,pos=[];
+    for(var i=0;i<els.length&&ok;i++){
+      var r0=els[i].getBoundingClientRect(),w=r0.width+6,h=r0.height,t=0,placed=false;
+      while(t<500){
+        var r=2.2*t,x=W/2+r*Math.cos(t)*(W/H*.85)-w/2,y=H/2+r*Math.sin(t)-h/2;
+        if(x>=12&&x+w<=W-12&&y>=12&&y+h<=H-12&&!pl.some(function(p){return x<p.x+p.w+6&&x+w+6>p.x&&y<p.y+p.h+3&&y+h+3>p.y})){pl.push({x:x,y:y,w:w,h:h});pos.push([x,y]);placed=true;break}
+        t+=.1;
+      }
+      if(!placed)ok=false;
+    }
+    if(ok){els.forEach(function(li,k){li.style.left=Math.round(pos[k][0])+'px';li.style.top=Math.round(pos[k][1])+'px';li.style.visibility='visible'});return}
+    sc*=.9;
+  }
+}
+var rzT;window.addEventListener('resize',function(){clearTimeout(rzT);rzT=setTimeout(drawCloud,150)});
+if(document.fonts&&document.fonts.load){document.fonts.load('800 20px "Baloo 2"').then(function(){drawCloud()})}
 function render(d){
   var raised=(d.apoiadores||[]).reduce(function(a,x){return a+(+x.valor||0)},0);
   if(typeof d.arrecadado==='number'&&d.arrecadado>raised)raised=d.arrecadado;
@@ -231,6 +290,10 @@ function render(d){
   document.getElementById('goalTxt').textContent='of '+fmt(d.meta);
   document.getElementById('pct').textContent=pct.toFixed(pct<10?1:0).replace('.',LOC==='pt-BR'?',':'.')+'% of goal';
   document.getElementById('deadline').textContent=fdate(d.prazo);
+  document.getElementById('heroRaised').textContent=fmt(raised);
+  document.getElementById('heroOf').textContent='of '+fmt(d.meta);
+  document.getElementById('heroPct').textContent=document.getElementById('pct').textContent.replace(' of goal','');
+  requestAnimationFrame(function(){document.getElementById('water').style.top=(100-Math.max(pct,3))+'%'});
   document.getElementById('barwrap').setAttribute('aria-valuenow',Math.round(pct));
   requestAnimationFrame(function(){document.getElementById('bar').style.width=Math.max(pct,0)+'%'});
   var names=["Travel","Lodging","Rides and similar","Food / reserve fund"];
@@ -240,7 +303,11 @@ function render(d){
   document.getElementById('upd').textContent=d.atualizado?fdate(d.atualizado):'-';
   var l=(d.apoiadores||[]).slice().sort(function(a,b){return b.data<a.data?-1:1});
   document.getElementById('empty').hidden=l.length>0;
+  document.getElementById('full').hidden=l.length===0;
   document.getElementById('list').innerHTML=l.map(function(x){return '<div class="r"><span>'+esc(x.nome)+'</span><span>'+fdate(x.data)+'</span><span>'+fmt(x.valor)+'</span></div>'}).join('');
+  var agg={};(d.apoiadores||[]).forEach(function(x){var k=String(x.nome||'').trim();if(!k)return;agg[k]=(agg[k]||0)+(+x.valor||0)});
+  CLOUD=Object.keys(agg).map(function(k){return{n:k,v:agg[k]}}).sort(function(a,b){return b.v-a.v});
+  drawCloud();
 }
 fetch('data.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(render).catch(function(){
   render({meta:11000,arrecadado:0,prazo:'2027-02-11',custos:[{nome:'',valor:7500},{nome:'',valor:2500},{nome:'',valor:500},{nome:'',valor:500}],apoiadores:[]});
