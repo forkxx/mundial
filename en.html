@@ -27,9 +27,9 @@
 <meta name="twitter:image" content="https://forkxx.github.io/mundial/assets/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0b10;--card:#14141c;--card2:#1a1a24;--line:#262633;--text:#f2f2f7;--mute:#a3a3b8;--purple:#a24bff;--purple-2:#7a2fe0;--glow:rgba(162,75,255,.25);--gold:#ffc83d;--head:'Baloo 2','Inter',system-ui,sans-serif}
+:root{--bg:#0b0b10;--card:#14141c;--card2:#1a1a24;--line:#262633;--text:#f2f2f7;--mute:#a3a3b8;--purple:#a24bff;--purple-2:#7a2fe0;--glow:rgba(162,75,255,.25);--gold:#ffc83d;--head:'Barlow Condensed','Inter',system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:76px}
 body{background-color:var(--bg);background-image:radial-gradient(#1c1c28 1px,transparent 1px);background-size:22px 22px;color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.55}
@@ -226,18 +226,13 @@ section.band::before{content:"";position:absolute;inset:0;z-index:-1;background:
 .hero::after{bottom:40px;height:260px;background:radial-gradient(45% 50% at 30% 50%,rgba(255,120,40,.2),transparent 72%)}
 .floor{-webkit-mask-image:linear-gradient(transparent,#000 45%,#000 62%,transparent);mask-image:linear-gradient(transparent,#000 45%,#000 62%,transparent)}
 .embers{-webkit-mask-image:linear-gradient(#000 45%,transparent 92%);mask-image:linear-gradient(#000 45%,transparent 92%)}
-.fbtn{font-family:inherit;font-size:.78rem;font-weight:700;border:1px solid var(--line);background:transparent;color:var(--mute);border-radius:99px;padding:5px 11px;cursor:pointer;min-height:32px;white-space:nowrap}
-.fbtn:hover{border-color:var(--purple);color:var(--text)}
-html[data-font=barlow]{--head:'Barlow Condensed','Inter',system-ui,sans-serif}
-html[data-font=barlow] h1{font-size:clamp(3.4rem,9vw,5.6rem);letter-spacing:.01em}
-html[data-font=barlow] h2{font-size:2.5rem}
-html[data-font=barlow] .hbig{font-size:clamp(3.6rem,9vw,6.6rem)}
-html[data-font=barlow] .big{font-size:4rem}html[data-font=barlow] .count b{font-size:4.2rem}
-html[data-font=barlow] .cl-list li{letter-spacing:.01em}
-@media(max-width:860px){.fbtn{margin-left:auto}.fbtn+.lang{margin-left:0}}
-
-.cl-logo{left:14px;top:auto;bottom:12px;width:min(30%,190px);transform:none;opacity:1;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5))}
-@media(max-width:600px){.cl-logo{width:34%;opacity:1}}
+h1{font-size:clamp(3.4rem,9vw,5.6rem);letter-spacing:.01em}
+h2{font-size:2.5rem}
+.hbig{font-size:clamp(3.6rem,9vw,6.6rem)}
+.big{font-size:4rem}.count b{font-size:4.2rem}
+.cl-list li{letter-spacing:.01em}
+.cl-logo{left:14px;top:auto;bottom:12px;width:min(19%,125px);transform:none;opacity:.5;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5))}
+@media(max-width:600px){.cl-logo{width:26%;opacity:.5}}
 /* tema platinado / foil */
 .metarow>.card,.card.info{background:linear-gradient(rgba(20,20,28,.92),rgba(20,20,28,.92)) padding-box,linear-gradient(135deg,#f4f6fa 0%,#8f97a6 22%,#e9edf3 40%,#7b8394 62%,#fdfdff 80%,#9aa2b2 100%) border-box}
 .gimg{color:#d9dee8!important;background:linear-gradient(135deg,rgba(255,255,255,.16) 0%,rgba(190,198,212,.05) 40%,rgba(255,255,255,.12) 55%,transparent 75%),linear-gradient(160deg,#2b2e38,#171820)!important}
@@ -252,13 +247,14 @@ html[data-font=barlow] .cl-list li{letter-spacing:.01em}
 .cl-shoot.s1{top:12%}.cl-shoot.s2{top:38%;animation-delay:-3.5s;animation-duration:11s}.cl-shoot.s3{top:6%;animation-delay:-6.5s;animation-duration:13s}
 @keyframes shoot{0%{opacity:0;translate:0 0}3%{opacity:.9}14%{opacity:0;translate:560px 300px}100%{opacity:0;translate:560px 300px}}
 @media(prefers-reduced-motion:reduce){.cl-shoot{animation:none;display:none}}
+.pays{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}.paycol{display:grid;gap:14px;grid-template-rows:1fr 1fr}
+@media(max-width:860px){.pays{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
 <header class="nav"><div class="wrap navin">
 <a class="logo" href="#top">FORKXX</a>
 <nav class="links" aria-label="Sections"><a href="#apoiadores">Supporters</a><a href="#meta">Goal</a><a href="#ajudar">How to help</a><a href="#evento">The event</a><a href="#duvidas">FAQ</a></nav>
-<button class="fbtn" id="fontBtn" type="button" aria-label="Switch the heading font between Baloo and Barlow Condensed">Font: Baloo</button>
 <a class="lang" href="./" hreflang="pt-BR">PT</a>
 <a class="btn sm" href="#ajudar">Support</a>
 </div><div class="sp"><div id="spFill"></div></div></header>
@@ -326,13 +322,14 @@ html[data-font=barlow] .cl-list li{letter-spacing:.01em}
 <div class="eyebrow">How to help</div>
 <h2>Pick your <span>way to support</span></h2>
 <p class="note" style="margin:-8px auto 22px;max-width:640px;text-align:center"><b><span data-p="share">85</span>%</b> of each donation goes toward the goal. The other <b><span data-p="rest">15</span>%</b> keeps the channel running until the event.</p>
-<div class="grid three">
+<div class="grid pays">
 <div class="card pay">
 <div class="ph"><span class="ico brand"><img src="assets/pix.webp" alt="" width="28" height="28" loading="lazy"></span><h3>PIX (with a message on stream)</h3></div>
 <p>Donate through Midpix and leave a message on stream.</p>
 <div class="qr"><img src="assets/pix-qr.webp" alt="Forkxx Pix QR Code (midpix.live)" width="236" height="310" loading="lazy"></div>
 <a class="btn ghost" href="https://midfielder.tv.br/Forkxx" rel="noopener" style="margin-top:auto">Open the Midpix page</a>
 </div>
+<div class="paycol">
 <div class="card pay">
 <div class="ph"><span class="ico brand"><img src="assets/pix.webp" alt="" width="28" height="28" loading="lazy"></span><h3>Direct PIX</h3></div>
 <p>Copy the key and pay in your bank app.</p>
@@ -345,6 +342,7 @@ html[data-font=barlow] .cl-list li{letter-spacing:.01em}
 <p>For supporters outside Brazil or anyone who prefers a card.</p>
 <div class="lbl">Send to</div>
 <div class="mono" style="font-size:.95rem;font-family:Inter,sans-serif;font-weight:600">max_lp_rox@hotmail.com</div>
+</div>
 </div>
 </div>
 </div></section>
@@ -450,7 +448,7 @@ function drawCloud(){
   }
 }
 var rzT;window.addEventListener('resize',function(){clearTimeout(rzT);rzT=setTimeout(drawCloud,150)});
-if(document.fonts){document.fonts.load('800 20px "Baloo 2"').then(drawCloud);document.fonts.ready.then(drawCloud)}
+if(document.fonts){document.fonts.load('800 20px "Barlow Condensed"').then(drawCloud);document.fonts.ready.then(drawCloud)}
 function render(d){
   var gross=(d.apoiadores||[]).reduce(function(a,x){return a+(+x.valor||0)},0);
   var share=(typeof d.percentualMeta==='number'?d.percentualMeta:100);
@@ -520,18 +518,6 @@ try{var els=document.querySelectorAll('.card,.cdb,.stat');
 if(window.matchMedia&&matchMedia('(hover:hover)').matches&&!reduce){document.querySelectorAll('#ajudar .card.pay').forEach(function(c){
   c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(900px) rotateY('+(x*12)+'deg) rotateX('+(-y*8)+'deg)'});
   c.addEventListener('pointerleave',function(){c.style.transform=''})})}
-})();
-</script>
-<script>
-(function(){
-var b=document.getElementById('fontBtn'),H=document.documentElement,lbl={baloo:'Font: Baloo',barlow:'Font: Barlow'};
-function set(f,save){if(f==='barlow')H.setAttribute('data-font','barlow');else H.removeAttribute('data-font');b.textContent=lbl[f];b.setAttribute('aria-pressed',f==='barlow');
-  if(save){try{localStorage.setItem('fk-font',f)}catch(e){}}
-  var go=function(){window.dispatchEvent(new Event('resize'))};
-  if(document.fonts&&document.fonts.load){document.fonts.load('800 20px "Barlow Condensed"').then(go,go)}else go()}
-var cur='baloo';try{cur=localStorage.getItem('fk-font')==='barlow'?'barlow':'baloo'}catch(e){}
-set(cur,false);
-b.addEventListener('click',function(){cur=cur==='baloo'?'barlow':'baloo';set(cur,true)});
 })();
 </script>
 </body>
