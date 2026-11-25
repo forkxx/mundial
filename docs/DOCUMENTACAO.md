@@ -28,9 +28,8 @@ Site para divulgar e arrecadar fundos para o Forkxx ir ao Mundial de Warcraft 3 
 | Info do evento | liquipedia.net/warcraft/Being_Esports_World_Series/2027 |
 
 Como ajudar:
-- Pix (chave aleatória 98547923-1f68-4439-820b-a2eac65629ed) e QR Code via midpix.live
+- PIX com mensagem na live (QR Code da Midpix/Midfielder) e PIX direto (chave aleatória 98547923-1f68-4439-820b-a2eac65629ed)
 - PayPal: max_lp_rox@hotmail.com
-- Doações nas lives: YouTube, Kick e Twitch em /forkxx. 80% de cada doação em live vai para a meta.
 
 Regras de negócio (FAQ da planilha):
 - Meta não atingida no prazo: campeonato brasileiro de Warcraft 3 com 100% do arrecadado.
@@ -45,7 +44,7 @@ Pendências de dados: o Excel original não chegou, só o PDF. As abas de apoiad
 1. Navegação fixa: Meta, Como ajudar, O evento, Apoiadores, Dúvidas, botão Apoiar.
 2. Hero: título, chamada, datas, CTAs, foto.
 3. Meta: valor arrecadado, barra de progresso, percentual, prazo, detalhamento dos 4 custos, contagem regressiva.
-4. Como ajudar: cartões Pix (QR + chave + botão copiar), PayPal, Lives (80%).
+4. Como ajudar: três cartões com ícone: PIX (com mensagem na live: QR + botão para a Midpix), PIX direto (chave + botão copiar) e PayPal. O cartão de doações nas lives foi removido.
 5. O evento: local, data, link Liquipedia, o que será produzido.
 6. Apoiadores: tabela Nome, Data, Valor (estado vazio com convite).
 7. Dúvidas: FAQ.
@@ -139,7 +138,7 @@ Fase 3: contador ao vivo do status da live (como no Mídia Kit), galeria dos vlo
 5. Abertura: tanque circular que enche com o logo do Mundial no centro (conceito 12 de 20). A água sobe conforme `arrecadado` e a soma dos apoiadores no `data.json`.
 6. Apoiadores: nuvem neon (conceito 19 de 20). O tamanho do nome é proporcional ao total doado, os 3 maiores em dourado, com a lista completa dentro de "Ver lista completa". Doações do mesmo nome são somadas. Usar apenas apelidos e com consentimento.
 7. Sem editor no site: apoiadores e valores são adicionados pedindo ao Claude no projeto, que edita o `data.json`.
-8. Regra de arrecadação (25/11/2026): 85% de cada doação conta para a meta e 15% mantém as custas do canal até o evento. No `data.json`, `percentualMeta` vale 85 e cada apoiador guarda o valor bruto doado. A barra e o tanque usam 85% da soma; a nuvem usa o valor bruto. O texto vale para Pix, PayPal e lives (substitui o 80% das lives da planilha original).
+8. Regra de arrecadação (25/11/2026): 85% de cada doação conta para a meta e 15% mantém as custas do canal até o evento. No `data.json`, `percentualMeta` vale 85 e cada apoiador guarda o valor bruto doado. A barra e o tanque usam 85% da soma; a nuvem usa o valor bruto. O texto vale para Pix, PayPal e lives (o cartão de lives foi removido).
 9. Primeiras 10 doações lançadas (R$ 215,00 brutos, R$ 182,75 para a meta).
 
 ## 10. Pendências
@@ -147,3 +146,5 @@ Fase 3: contador ao vivo do status da live (como no Mídia Kit), galeria dos vlo
 - Link direto de pagamento do PayPal (paypal.me), se quiser um botão além do e-mail.
 - Trocar a imagem de compartilhamento (`assets/og.png`) por uma arte própria, se desejado.
 - Fase 2: tema claro e linha do tempo de marcos.
+
+9. Ordem das seções (25/11/2026): hero com tanque, nuvem de apoiadores (2ª seção), meta, como ajudar, evento, dúvidas. A nuvem mede cada nome pelo tamanho real (offsetWidth/Height) e testa colisão com folga, então os nomes nunca se sobrepõem. Os ícones de PIX e PayPal são genéricos, não os logotipos oficiais.

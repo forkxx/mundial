@@ -96,6 +96,8 @@ a.card:hover{border-color:#3a3a52}
 .pay{display:flex;flex-direction:column;gap:12px}
 .qr{background:#7a3fb0;border-radius:16px;padding:0;max-width:200px;margin:0 auto;overflow:hidden}
 .qr img{width:100%}
+.ph{display:flex;align-items:center;gap:12px}.ph h3{margin:0}
+.ico{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent);border:1px solid color-mix(in srgb,var(--c) 40%,transparent)}
 .lbl{font-size:.75rem;color:var(--mute)}
 .mono{font-family:ui-monospace,Menlo,monospace;font-size:.78rem;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:10px;word-break:break-all}
 .lk{display:flex;justify-content:space-between;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:var(--card2);font-weight:600}
@@ -130,7 +132,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 <body>
 <header class="nav"><div class="wrap navin">
 <a class="logo" href="#top">FORKXX</a>
-<nav class="links" aria-label="Seções"><a href="#meta">Meta</a><a href="#ajudar">Como ajudar</a><a href="#evento">O evento</a><a href="#apoiadores">Apoiadores</a><a href="#duvidas">Dúvidas</a></nav>
+<nav class="links" aria-label="Seções"><a href="#apoiadores">Apoiadores</a><a href="#meta">Meta</a><a href="#ajudar">Como ajudar</a><a href="#evento">O evento</a><a href="#duvidas">Dúvidas</a></nav>
 <a class="lang" href="en.html" hreflang="en">EN</a>
 <a class="btn sm" href="#ajudar">Apoiar</a>
 </div></header>
@@ -150,6 +152,22 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 <div class="actions"><a class="btn" href="#ajudar">Quero apoiar</a><a class="btn ghost" href="#evento">Ver o evento</a></div>
 </div>
 </div></div>
+
+<section id="apoiadores"><div class="wrap">
+<div class="eyebrow">Lista de apoiadores</div>
+<h2>Obrigado <span>demais</span></h2>
+<div class="cloud" id="cloud">
+<img class="cl-logo" src="assets/logo-mundial.webp" alt="" width="625" height="637" loading="lazy">
+<ul class="cl-list" id="cloudList"></ul>
+<div class="cl-empty" id="empty">Ainda não há apoiadores. O primeiro nome da lista pode ser o seu.</div>
+</div>
+<details class="full" id="full"><summary>Ver lista completa</summary>
+<div class="card sup">
+<div class="h"><span>Nome</span><span>Data</span><span>Valor</span></div>
+<div id="list"></div>
+</div>
+</details>
+</div></section>
 
 <section id="meta"><div class="wrap">
 <div class="eyebrow">Meta de doação</div>
@@ -183,25 +201,23 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 <p class="note" style="margin:-8px 0 18px;max-width:640px"><b><span data-p="share">85</span>%</b> de cada doação vai para a meta. Os outros <b><span data-p="rest">15</span>%</b> mantêm as custas do canal até o evento.</p>
 <div class="grid three">
 <div class="card pay">
-<h3>Pix</h3>
+<div class="ph"><span class="ico" style="--c:#32bcad"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><h3>PIX (com mensagem na live)</h3></div>
+<p>Doe pela Midpix e deixe sua mensagem na live.</p>
 <div class="qr"><img src="assets/pix-qr.webp" alt="QR Code Pix do Forkxx (midpix.live)" width="236" height="310" loading="lazy"></div>
-<div class="lbl">Chave Pix</div>
-<div class="mono" id="pix">98547923-1f68-4439-820b-a2eac65629ed</div>
-<button class="btn" id="copy" type="button" data-ok="Chave copiada!" data-idle="Copiar chave Pix">Copiar chave Pix</button>
+<a class="btn ghost" href="https://midfielder.tv.br/Forkxx" rel="noopener" style="margin-top:auto">Abrir a página da Midpix</a>
 </div>
 <div class="card pay">
-<h3>PayPal</h3>
+<div class="ph"><span class="ico" style="--c:#32bcad"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><h3>PIX direto</h3></div>
+<p>Copie a chave e pague no app do seu banco.</p>
+<div class="lbl">Chave Pix</div>
+<div class="mono" id="pix">98547923-1f68-4439-820b-a2eac65629ed</div>
+<button class="btn" id="copy" type="button" data-ok="Chave copiada!" data-idle="Copiar chave Pix" style="margin-top:auto">Copiar chave Pix</button>
+</div>
+<div class="card pay">
+<div class="ph"><span class="ico" style="--c:#4a8cff"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span><h3>PayPal</h3></div>
 <p>Para apoiadores de fora do Brasil ou quem prefere cartão.</p>
 <div class="lbl">Enviar para</div>
 <div class="mono" style="font-size:.95rem;font-family:Inter,sans-serif;font-weight:600">max_lp_rox@hotmail.com</div>
-</div>
-<div class="card pay">
-<h3>Doações nas lives</h3>
-<p>Doações feitas durante as transmissões também contam para a meta.</p>
-<a class="lk" href="https://www.youtube.com/forkxx" rel="noopener">YouTube<span>/forkxx</span></a>
-<a class="lk" href="https://kick.com/forkxx" rel="noopener">Kick<span>/forkxx</span></a>
-<a class="lk" href="https://www.twitch.tv/forkxx" rel="noopener">Twitch<span>/forkxx</span></a>
-<div class="lbl" style="margin-top:auto">*Vale a mesma regra: 85% da doação vai para a meta e 15% para as custas do canal.</div>
 </div>
 </div>
 </div></section>
@@ -221,21 +237,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 </div>
 </div></section>
 
-<section id="apoiadores"><div class="wrap">
-<div class="eyebrow">Lista de apoiadores</div>
-<h2>Obrigado <span>demais</span></h2>
-<div class="cloud" id="cloud">
-<img class="cl-logo" src="assets/logo-mundial.webp" alt="" width="625" height="637" loading="lazy">
-<ul class="cl-list" id="cloudList"></ul>
-<div class="cl-empty" id="empty">Ainda não há apoiadores. O primeiro nome da lista pode ser o seu.</div>
-</div>
-<details class="full" id="full"><summary>Ver lista completa</summary>
-<div class="card sup">
-<div class="h"><span>Nome</span><span>Data</span><span>Valor</span></div>
-<div id="list"></div>
-</div>
-</details>
-</div></section>
+
 
 <section id="duvidas"><div class="wrap">
 <div class="eyebrow">Dúvidas?</div>
@@ -273,10 +275,10 @@ function drawCloud(){
     });
     var pl=[],ok=true,pos=[];
     for(var i=0;i<els.length&&ok;i++){
-      var r0=els[i].getBoundingClientRect(),w=r0.width+6,h=r0.height,t=0,placed=false;
+      var w=els[i].offsetWidth+12,h=els[i].offsetHeight+4,t=0,placed=false;
       while(t<500){
         var r=2.2*t,x=W/2+r*Math.cos(t)*(W/H*.85)-w/2,y=H/2+r*Math.sin(t)-h/2;
-        if(x>=12&&x+w<=W-12&&y>=12&&y+h<=H-12&&!pl.some(function(p){return x<p.x+p.w+6&&x+w+6>p.x&&y<p.y+p.h+3&&y+h+3>p.y})){pl.push({x:x,y:y,w:w,h:h});pos.push([x,y]);placed=true;break}
+        if(x>=10&&x+w<=W-10&&y>=10&&y+h<=H-10&&!pl.some(function(p){return x<p.x+p.w+4&&x+w+4>p.x&&y<p.y+p.h+4&&y+h+4>p.y})){pl.push({x:x,y:y,w:w,h:h});pos.push([x,y]);placed=true;break}
         t+=.1;
       }
       if(!placed)ok=false;
@@ -286,7 +288,7 @@ function drawCloud(){
   }
 }
 var rzT;window.addEventListener('resize',function(){clearTimeout(rzT);rzT=setTimeout(drawCloud,150)});
-if(document.fonts&&document.fonts.load){document.fonts.load('800 20px "Baloo 2"').then(function(){drawCloud()})}
+if(document.fonts){document.fonts.load('800 20px "Baloo 2"').then(drawCloud);document.fonts.ready.then(drawCloud)}
 function render(d){
   var gross=(d.apoiadores||[]).reduce(function(a,x){return a+(+x.valor||0)},0);
   var share=(typeof d.percentualMeta==='number'?d.percentualMeta:100);
