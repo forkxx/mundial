@@ -142,6 +142,8 @@ Fase 3: contador ao vivo do status da live (como no Mídia Kit), galeria dos vlo
 9. Primeiras 10 doações lançadas (R$ 215,00 brutos, R$ 182,75 para a meta).
 10. Ordem das seções (25/11/2026): hero com tanque, nuvem de apoiadores (2ª seção), meta, como ajudar, evento, dúvidas. A nuvem mede cada nome pelo tamanho real (offsetWidth/Height) e testa colisão com folga, então os nomes nunca se sobrepõem. Os ícones de PIX e PayPal são genéricos, não os logotipos oficiais.
 
+11. Melhorias de acabamento (25/11/2026): brasas e brilho no hero; títulos de seção centralizados com ornamento (losango dourado); cartões de "Como ajudar" em moldura de pedra e ouro; galeria de 4 cartões no evento; rodapé completo com redes; barra fixa no celular com mini-progresso e botão Apoiar (aparece depois do hero e some na seção de apoio). Três seções novas ao final, nesta ordem: Divisão da meta (rosca calculada a partir de `custos`), Contagem regressiva ao vivo até `prazo` e Quem é o Forkxx (foto, 41,7 mil seguidores em 5 redes e 1.133 membros no Discord, números tirados do Mídia Kit: atualizar à mão se mudarem).
+
 ## 10. Pendências
 
 - Link direto de pagamento do PayPal (paypal.me), se quiser um botão além do e-mail.
