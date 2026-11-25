@@ -144,6 +144,8 @@ Fase 3: contador ao vivo do status da live (como no Mídia Kit), galeria dos vlo
 
 11. Melhorias de acabamento (25/11/2026): brasas e brilho no hero; títulos de seção centralizados com ornamento (losango dourado); cartões de "Como ajudar" em moldura de pedra e ouro; galeria de 4 cartões no evento; rodapé completo com redes; barra fixa no celular com mini-progresso e botão Apoiar (aparece depois do hero e some na seção de apoio). Três seções novas ao final, nesta ordem: Divisão da meta (rosca calculada a partir de `custos`), Contagem regressiva ao vivo até `prazo` e Quem é o Forkxx (foto, 41,7 mil seguidores em 5 redes e 1.133 membros no Discord, números tirados do Mídia Kit: atualizar à mão se mudarem).
 
+12. Segunda rodada visual (25/11/2026): chão em perspectiva no hero; título dourado metálico e número em degradê; cartões da meta e do evento em vidro com borda em degradê (os de apoio seguem em pedra e ouro); barra de meta segmentada em 40 blocos; anel rúnico de 60 marcas no tanque (acendem conforme o percentual); menu com barra de rolagem e seção ativa; botões com brilho, variante dourada e foco visível; FAQ em acordeão numerado; entrada em cascata ao rolar; estrelas e anéis pulsando na nuvem; faixas inclinadas de fundo (meta, evento, divisão, quem). Efeitos de movimento respeitam "reduzir animações" e a inclinação 3D só vale com mouse.
+
 ## 10. Pendências
 
 - Link direto de pagamento do PayPal (paypal.me), se quiser um botão além do e-mail.
