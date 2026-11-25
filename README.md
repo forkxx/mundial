@@ -8,12 +8,12 @@ Publicado em: https://forkxx.github.io/mundial/
 
 Tudo que muda fica em `data.json`:
 
-- `arrecadado`: total arrecadado em reais. O site usa o maior valor entre este campo e a soma dos apoiadores.
+- `percentualMeta`: parte de cada doação que conta para a meta (hoje 85). Os 15% restantes mantêm as custas do canal. Se mudar, o texto do site acompanha o número.
 - `atualizado`: data da última atualização (AAAA-MM-DD).
-- `apoiadores`: lista de `{ "nome": "Apelido", "data": "AAAA-MM-DD", "valor": 50 }`. Use só apelido.
+- `apoiadores`: lista com o valor bruto doado, no formato `{ "nome": "Apelido", "data": "AAAA-MM-DD", "valor": 50 }`. Use só apelido.
 - `meta`, `prazo`, `custos`: só mudam se o plano mudar.
 
-Depois edite no GitHub (ícone de lápis), faça commit e o site atualiza em alguns minutos.
+Depois edite no GitHub (ícone de lápis), faça commit e o site atualiza em alguns minutos. No dia a dia, a atualização é pedida ao Claude no projeto "Site Rumo ao Mundial", que edita o `data.json`.
 
 ## Estrutura
 

@@ -138,6 +138,9 @@ Fase 3: contador ao vivo do status da live (como no Mídia Kit), galeria dos vlo
 4. Mockup aprovado e site da fase 1 construído no repositório (index.html, en.html, data.json, assets, README).
 5. Abertura: tanque circular que enche com o logo do Mundial no centro (conceito 12 de 20). A água sobe conforme `arrecadado` e a soma dos apoiadores no `data.json`.
 6. Apoiadores: nuvem neon (conceito 19 de 20). O tamanho do nome é proporcional ao total doado, os 3 maiores em dourado, com a lista completa dentro de "Ver lista completa". Doações do mesmo nome são somadas. Usar apenas apelidos e com consentimento.
+7. Sem editor no site: apoiadores e valores são adicionados pedindo ao Claude no projeto, que edita o `data.json`.
+8. Regra de arrecadação (25/11/2026): 85% de cada doação conta para a meta e 15% mantém as custas do canal até o evento. No `data.json`, `percentualMeta` vale 85 e cada apoiador guarda o valor bruto doado. A barra e o tanque usam 85% da soma; a nuvem usa o valor bruto. O texto vale para Pix, PayPal e lives (substitui o 80% das lives da planilha original).
+9. Primeiras 10 doações lançadas (R$ 215,00 brutos, R$ 182,75 para a meta).
 
 ## 10. Pendências
 

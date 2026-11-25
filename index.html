@@ -63,7 +63,8 @@ h2 span{color:var(--purple)}
 @keyframes wv{to{transform:translateX(-50%)}}
 .tlogo{position:absolute;left:50%;top:50%;width:62%;height:auto;transform:translate(-50%,-50%);filter:drop-shadow(0 10px 24px rgba(0,0,0,.65))}
 .hbig{font-family:var(--head);font-size:clamp(3.2rem,8vw,5.8rem);font-weight:800;line-height:1;margin:14px 0 4px}
-.hof{color:var(--mute);font-size:1.05rem;margin-bottom:22px}.hof b{color:#fff}
+.note{color:var(--mute);font-size:.9rem;max-width:520px}.note b{color:#fff}
+.hof{color:var(--mute);font-size:1.05rem;margin-bottom:22px}.hof b{color:#fff}.hof{margin-bottom:10px}.hero .actions{margin-top:18px}
 
 .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:.8rem;font-weight:600;color:#c9c9d8}
 .pill i{width:8px;height:8px;border-radius:50%;background:var(--gold)}
@@ -145,6 +146,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 <p class="tag">Ajude o Forkxx a ir ao Mundial de Warcraft 3 na Alemanha.</p>
 <div class="hbig" id="heroRaised">R$ 0,00</div>
 <p class="hof"><span id="heroOf">de R$ 11.000,00</span> · <b id="heroPct">0%</b> da meta</p>
+<p class="note"><b><span data-p="share">85</span>%</b> de cada doação vai para a meta. Os outros <b><span data-p="rest">15</span>%</b> mantêm as custas do canal até o evento.</p>
 <div class="actions"><a class="btn" href="#ajudar">Quero apoiar</a><a class="btn ghost" href="#evento">Ver o evento</a></div>
 </div>
 </div></div>
@@ -163,6 +165,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 <div class="cost"><span>Uber e afins</span><b>R$ 500,00</b></div>
 <div class="cost"><span>Comida / fundo reserva</span><b>R$ 500,00</b></div>
 </div>
+<p class="note" style="margin-top:14px">Total doado: <b id="gross">R$ 0,00</b> · <b><span data-p="share">85</span>%</b> para a meta e <b><span data-p="rest">15</span>%</b> para as custas do canal até o evento.</p>
 <p class="upd">Última atualização: <span id="upd">-</span></p>
 </div>
 <div class="card count">
@@ -177,6 +180,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 <section id="ajudar"><div class="wrap">
 <div class="eyebrow">Como ajudar</div>
 <h2>Escolha seu <span>jeito de apoiar</span></h2>
+<p class="note" style="margin:-8px 0 18px;max-width:640px"><b><span data-p="share">85</span>%</b> de cada doação vai para a meta. Os outros <b><span data-p="rest">15</span>%</b> mantêm as custas do canal até o evento.</p>
 <div class="grid three">
 <div class="card pay">
 <h3>Pix</h3>
@@ -197,7 +201,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 <a class="lk" href="https://www.youtube.com/forkxx" rel="noopener">YouTube<span>/forkxx</span></a>
 <a class="lk" href="https://kick.com/forkxx" rel="noopener">Kick<span>/forkxx</span></a>
 <a class="lk" href="https://www.twitch.tv/forkxx" rel="noopener">Twitch<span>/forkxx</span></a>
-<div class="lbl" style="margin-top:auto">*80% de cada doação em live é destinado à meta.</div>
+<div class="lbl" style="margin-top:auto">*Vale a mesma regra: 85% da doação vai para a meta e 15% para as custas do canal.</div>
 </div>
 </div>
 </div></section>
@@ -241,6 +245,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-con
 <div class="card"><h3>Por que o prazo é um mês antes do evento?</h3><p>Para dar tempo de comprar passagens e fazer reservas sem preços abusivos.</p></div>
 <div class="card"><h3>E se sobrar dinheiro no fim da cobertura?</h3><p>Também farei um campeonato com o valor restante levantado pela comunidade.</p></div>
 <div class="card"><h3>Onde acompanho tudo?</h3><p>YouTube, Kick e Twitch em /forkxx, além de TikTok e Instagram.</p></div>
+<div class="card"><h3>Para onde vão os 15% de cada doação?</h3><p>Ajudam a manter as custas do canal até o evento. Só os 85% restantes contam para a meta de R$ 11.000.</p></div>
 </div>
 </div></section>
 </main>
@@ -283,8 +288,12 @@ function drawCloud(){
 var rzT;window.addEventListener('resize',function(){clearTimeout(rzT);rzT=setTimeout(drawCloud,150)});
 if(document.fonts&&document.fonts.load){document.fonts.load('800 20px "Baloo 2"').then(function(){drawCloud()})}
 function render(d){
-  var raised=(d.apoiadores||[]).reduce(function(a,x){return a+(+x.valor||0)},0);
-  if(typeof d.arrecadado==='number'&&d.arrecadado>raised)raised=d.arrecadado;
+  var gross=(d.apoiadores||[]).reduce(function(a,x){return a+(+x.valor||0)},0);
+  var share=(typeof d.percentualMeta==='number'?d.percentualMeta:100);
+  var raised=Math.round(gross*share)/100;
+  document.getElementById('gross').textContent=fmt(gross);
+  document.querySelectorAll('[data-p=share]').forEach(function(e){e.textContent=share});
+  document.querySelectorAll('[data-p=rest]').forEach(function(e){e.textContent=100-share});
   var pct=Math.min(100,raised/d.meta*100);
   document.getElementById('raised').textContent=fmt(raised);
   document.getElementById('goalTxt').textContent='de '+fmt(d.meta);
@@ -310,7 +319,7 @@ function render(d){
   drawCloud();
 }
 fetch('data.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(render).catch(function(){
-  render({meta:11000,arrecadado:0,prazo:'2027-02-11',custos:[{nome:'',valor:7500},{nome:'',valor:2500},{nome:'',valor:500},{nome:'',valor:500}],apoiadores:[]});
+  render({meta:11000,percentualMeta:85,prazo:'2027-02-11',custos:[{nome:'',valor:7500},{nome:'',valor:2500},{nome:'',valor:500},{nome:'',valor:500}],apoiadores:[]});
 });
 var b=document.getElementById('copy');
 b.addEventListener('click',function(){
