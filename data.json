@@ -22,6 +22,27 @@
   ],
   "apoiadores": [
     {
+      "nome": "andreyapyr8287",
+      "data": "2026-11-25",
+      "valor": 10
+    },
+    {
+      "nome": "Larguei age 2",
+      "data": "2026-11-25",
+      "valor": 2
+    },
+    {
+      "nome": "Castle blood auto",
+      "data": "2026-11-25",
+      "valor": 3
+    },
+    {
+      "nome": "Pedro Cavichio Grochocki",
+      "data": "2026-11-25",
+      "valor": 150,
+      "percentual": 100
+    },
+    {
       "nome": "Gustavo Carvalho",
       "data": "2026-11-22",
       "valor": 20
