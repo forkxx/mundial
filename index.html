@@ -247,8 +247,11 @@ h2{font-size:2.5rem}
 .cl-shoot.s1{top:12%}.cl-shoot.s2{top:38%;animation-delay:-3.5s;animation-duration:11s}.cl-shoot.s3{top:6%;animation-delay:-6.5s;animation-duration:13s}
 @keyframes shoot{0%{opacity:0;translate:0 0}3%{opacity:.9}14%{opacity:0;translate:560px 300px}100%{opacity:0;translate:560px 300px}}
 @media(prefers-reduced-motion:reduce){.cl-shoot{animation:none;display:none}}
-.pays{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}.paycol{display:grid;gap:14px;grid-template-rows:1fr 1fr}
-@media(max-width:860px){.pays{grid-template-columns:minmax(0,1fr)}}
+.pays{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1fr);gap:18px;align-items:center;margin-top:18px}.paycol{display:contents}
+#ajudar .paycol .card.pay:first-child{order:1}#ajudar .pays>.card.pay{order:2}#ajudar .paycol .card.pay:last-child{order:3}
+#ajudar .pays>.card.pay{position:relative;top:-8px;align-self:stretch;border:2px solid transparent;border-radius:16px;box-shadow:0 24px 50px rgba(0,0,0,.6),0 0 40px rgba(162,75,255,.18);background:linear-gradient(#171720,#171720) padding-box,linear-gradient(135deg,#f4f6fa,#8f97a6 25%,#e9edf3 45%,#7b8394 65%,#fdfdff 85%,#9aa2b2) border-box}
+#ajudar .pays>.card.pay .qr{max-width:240px}
+@media(max-width:860px){.pays{grid-template-columns:minmax(0,1fr)}#ajudar .pays>.card.pay{order:0;top:0}#ajudar .paycol .card.pay:first-child{order:1}#ajudar .paycol .card.pay:last-child{order:2}}
 </style>
 </head>
 <body>
