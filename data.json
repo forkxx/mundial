@@ -1,7 +1,7 @@
 {
   "meta": 11000,
   "prazo": "2027-02-11",
-  "atualizado": "2026-11-25",
+  "atualizado": "2026-11-26",
   "custos": [
     {
       "nome": "Viagem",
@@ -21,6 +21,16 @@
     }
   ],
   "apoiadores": [
+    {
+      "nome": "andreyapyr8287",
+      "data": "2026-11-26",
+      "valor": 10
+    },
+    {
+      "nome": "Hera",
+      "data": "2026-11-26",
+      "valor": 2
+    },
     {
       "nome": "Yuri (Baha)",
       "data": "2026-11-25",
