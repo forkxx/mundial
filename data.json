@@ -1,7 +1,7 @@
 {
   "meta": 11000,
   "prazo": "2027-02-11",
-  "atualizado": "2026-11-26",
+  "atualizado": "2026-11-27",
   "custos": [
     {
       "nome": "Viagem",
@@ -21,6 +21,24 @@
     }
   ],
   "apoiadores": [
+    {
+      "nome": "Pedro J A S Rodrigues",
+      "data": "2026-11-27",
+      "valor": 100,
+      "percentual": 100
+    },
+    {
+      "nome": "Peter Gabriel Mercini Patricio",
+      "data": "2026-11-27",
+      "valor": 325,
+      "percentual": 100
+    },
+    {
+      "nome": "Peter Gabriel Mercini Patricio",
+      "data": "2026-11-27",
+      "valor": 175,
+      "percentual": 100
+    },
     {
       "nome": "Tiago Graciano de Biasi",
       "data": "2026-11-26",
