@@ -22,6 +22,18 @@
   ],
   "apoiadores": [
     {
+      "nome": "Tiago Graciano de Biasi",
+      "data": "2026-11-26",
+      "valor": 200,
+      "percentual": 100
+    },
+    {
+      "nome": "Casagamer",
+      "data": "2026-11-25",
+      "valor": 100,
+      "percentual": 100
+    },
+    {
       "nome": "andreyapyr8287",
       "data": "2026-11-26",
       "valor": 10
