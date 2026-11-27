@@ -4,7 +4,7 @@
 Uso (na pasta do projeto):   python3 divulgacao/gerar-png.py
 Requisitos: Google Chrome ou Chromium instalado e internet (para carregar as fontes).
 Saída: divulgacao/forkxx-1080p-horizontal.png, forkxx-youtube-quadrado.png, forkxx-stories-vertical.png
-(e as versões em inglês com sufixo -en). O botão "Imagens de divulgação" no rodapé do site baixa esses arquivos.
+(e as versões em inglês com sufixo -en). Também gera as imagens de agradecimento da nuvem de apoiadores: forkxx-obrigado-*.png. O botão "Imagens de divulgação" no rodapé do site baixa esses arquivos.
 Os valores vêm de data.json, então rode de novo sempre que atualizar as doações.
 Também dá para abrir index.html?export=wide|square|story no navegador e tirar print.
 """
@@ -15,6 +15,9 @@ OUT = os.path.join(ROOT, "divulgacao")
 FORMATOS = [("wide", 1920, 1080, "forkxx-1080p-horizontal"),
             ("square", 1080, 1080, "forkxx-youtube-quadrado"),
             ("story", 1080, 1920, "forkxx-stories-vertical")]
+# imagens de agradecimento (nuvem de apoiadores): mesma página com &view=thanks
+ALVOS = [(f, w, h, n, "") for f, w, h, n in FORMATOS] + \
+        [(f, w, h, n.replace("forkxx-", "forkxx-obrigado-"), "&view=thanks") for f, w, h, n in FORMATOS]
 CANDIDATOS = ["google-chrome", "google-chrome-stable", "chromium", "chromium-browser", "chrome",
               r"C:\Program Files\Google\Chrome\Application\chrome.exe",
               r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
@@ -34,11 +37,11 @@ def main():
     porta = srv.server_address[1]
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     for pagina, suf in (("index.html", ""), ("en.html", "-en")):
-      for fmt, w, h, nome in FORMATOS:
+      for fmt, w, h, nome, extra in ALVOS:
         saida = os.path.join(OUT, nome + suf + ".png")
         subprocess.run([chrome, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--no-sandbox",
                         "--force-prefers-reduced-motion", f"--window-size={w},{h}", "--virtual-time-budget=9000",
-                        f"--screenshot={saida}", f"http://127.0.0.1:{porta}/{pagina}?export={fmt}"],
+                        f"--screenshot={saida}", f"http://127.0.0.1:{porta}/{pagina}?export={fmt}{extra}"],
                        check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         print("ok", saida)
     srv.shutdown()
