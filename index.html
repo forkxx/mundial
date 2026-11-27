@@ -481,7 +481,8 @@ function drawCloud(){
       li.className='t'+tier;li.style.cssText='left:0;top:0;visibility:hidden;font-size:'+fs+'px';
       ul.appendChild(li);return li;
     });
-    var pl=[],ok=true,pos=[];
+    var pl=[],ok=true,pos=[],lg=box.querySelector('.cl-logo');
+    if(lg){var lr=lg.getBoundingClientRect(),br=box.getBoundingClientRect();if(lr.width)pl.push({x:lr.left-br.left,y:lr.top-br.top,w:lr.width,h:lr.height})}
     for(var i=0;i<els.length&&ok;i++){
       var w=els[i].offsetWidth+12,h=els[i].offsetHeight+4,t=0,placed=false;
       while(t<500){

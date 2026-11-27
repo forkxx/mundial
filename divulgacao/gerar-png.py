@@ -39,10 +39,15 @@ def main():
     for pagina, suf in (("index.html", ""), ("en.html", "-en")):
       for fmt, w, h, nome, extra in ALVOS:
         saida = os.path.join(OUT, nome + suf + ".png")
-        subprocess.run([chrome, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--no-sandbox",
-                        "--force-prefers-reduced-motion", f"--window-size={w},{h}", "--virtual-time-budget=9000",
-                        f"--screenshot={saida}", f"http://127.0.0.1:{porta}/{pagina}?export={fmt}{extra}"],
-                       check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        cmd = [chrome, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--no-sandbox",
+               "--force-prefers-reduced-motion", f"--window-size={w},{h}", "--virtual-time-budget=9000",
+               f"--screenshot={saida}", f"http://127.0.0.1:{porta}/{pagina}?export={fmt}{extra}"]
+        for tentativa in range(3):  # o Chrome headless às vezes trava; tenta de novo
+            try:
+                subprocess.run(cmd, check=True, timeout=40, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                break
+            except subprocess.TimeoutExpired:
+                if tentativa == 2: raise
         print("ok", saida)
     srv.shutdown()
 
